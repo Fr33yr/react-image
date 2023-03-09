@@ -1,5 +1,7 @@
 import React from "react";
 
+// this component only handles the image render
+// and posible errors
 const Image = ({ height, width, url }) => {
     const fallBackImage = 'https://via.placeholder.com/300x300' // imagen placeholder
 
