@@ -2,21 +2,26 @@ import React from "react";
 
 // this component only handles the image render
 // and posible errors
-const Image = ({ height, width, url }) => {
-    const fallBackImage = 'https://via.placeholder.com/300x300' // imagen placeholder
+function Image({ height, width, url, alt }: Props) {
+  const fallBackImage = `https://via.placeholder.com/${width}x${height}`;
 
-    if(!url){
-        return <img src={fallBackImage} height={height} width={width}/>
-    }
+  if (!url) {
+    return <img className={styles.img} src={fallBackImage} />;
+  }
 
-    return(
-        <img 
-        src={url}
-        height={height}
-        width={width}
-        onError={(e)=>{
-            e.target.onerror = null
-            e.target.src = fallBackImage
-        }}/>
-    )
+  return (
+    <img
+    className={styles.img}
+      alt={alt && ""}
+      src={url}
+      height={height}
+      width={width}
+      onError={(e) => {
+        e.target.onerror = null;
+        e.target.src = fallBackImage;
+      }}
+    />
+  );
 }
+
+export default Image;
