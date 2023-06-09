@@ -14,8 +14,6 @@ function Image({ height, width, url, alt }: Props) {
     className={styles.img}
       alt={alt && ""}
       src={url}
-      height={height}
-      width={width}
       onError={(e) => {
         e.target.onerror = null;
         e.target.src = fallBackImage;
